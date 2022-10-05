@@ -1,0 +1,29 @@
+body {
+  background-color: #ffffff;
+}
+
+header {
+  height: 400px;
+  width: 100%;
+  /* background: linear-gradient(90deg, #c5ccf6 10%, #a78ab8 90%); */
+  background: url('/weather.jpg');
+  background-color: rgb(106, 120, 133);
+  background-blend-mode: multiply;
+  background-size: cover;
+  position: relative;
+  color: white;
+  display: grid;
+  place-content: center;
+}
+
+header > p {
+  font-size: 7em;
+  font-weight: 200;
+}
+
+.header-divider {
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  
+}

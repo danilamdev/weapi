@@ -1,0 +1,32 @@
+.main-app {
+  max-width: 95vw;
+  margin: auto;
+  /* border: 1px solid rgba(211, 211, 211, 0.479); */
+  /* height: 60vh; */
+  border-radius: 2em;
+  padding-inline: 1em;
+  /* box-shadow: 0px 10px 25px rgba(180, 100, 226, 0.199) ; */
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 3.5em;
+  text-align: right;
+}
+
+h1 span {
+  font-weight: bold;
+  color: rgb(153, 153, 153);
+  position: relative;
+}
+
+h1 span::after {
+  content: '';
+  position: absolute;
+  background-color: rgb(211, 211, 211);
+  left: 20px;
+  right: 0;
+  bottom: -7px;
+  height: 7px;
+  border-radius: 0%;
+}
