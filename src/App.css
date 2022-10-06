@@ -4,26 +4,60 @@ body {
 
 header {
   height: 400px;
-  width: 100%;
+  width: 100vw;
   /* background: linear-gradient(90deg, #c5ccf6 10%, #a78ab8 90%); */
   background: url('/weather.jpg');
-  background-color: rgb(106, 120, 133);
-  background-blend-mode: multiply;
+  /* background-color: rgb(160, 159, 159); */
+  /* background-blend-mode: darken; */
   background-size: cover;
   position: relative;
   color: white;
+  overflow: hidden;
+}
+
+.header-container {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px) grayscale(70%);
   display: grid;
   place-content: center;
 }
 
-header > p {
+.header-container .temp {
   font-size: 7em;
   font-weight: 200;
+  text-align: center;
+  position: relative;
+  font-family: 'roboto mono';
+}
+
+.header-container .temp::before {
+  content: 'Today';
+  font-size: .18em;
+  font-weight: 700;
+  position:absolute;
+  font-family: 'poppins';
+  top: -20px;
+  color: rgb(253, 253, 253);
+  right: 130px;
+
+}
+
+.header-container .location {
+  font-weight: 200;
+  text-align: center;
+  font-size: 1.8em;
 }
 
 .header-divider {
   position:absolute;
   bottom: 0;
   left: 0;
-  
+  fill: rgb(236, 236, 236);
+}
+
+.region {
+  color: rgb(228, 226, 226);
+  text-align: center;
+  font-family: 'roboto mono';
 }
