@@ -10,7 +10,7 @@ export default {
   1087: (isDay) => `/all/thunderstorms.svg`,
   1114: (isDay) => `/all/snow.svg`,
   1117: (isDay) => `/all/snow.svg`,
-  1135: (isDay) => `/all/fog-${isDay ? 'day' : 'night'}.svg.svg`,
+  1135: (isDay) => `/all/fog-${isDay ? 'day' : 'night'}.svg`,
   1180: (isDay) => `/all/partly-cloudy-day-rain.svg`,
   1150: (isDay) => `/all/drizzle.svg`,
   1153: (isDay) => `/all/drizzle.svg`,

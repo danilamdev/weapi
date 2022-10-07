@@ -1,24 +1,21 @@
-body {
-  background-color: #ffffff;
-}
-
 header {
   height: 400px;
   width: 100vw;
-  /* background: linear-gradient(90deg, #c5ccf6 10%, #a78ab8 90%); */
   background: url('/weather.jpg');
-  /* background-color: rgb(160, 159, 159); */
-  /* background-blend-mode: darken; */
+  background-color: rgba(54, 56, 59, 0.568);
+  background-blend-mode: multiply;
   background-size: cover;
   position: relative;
-  color: white;
+  color: rgb(243, 243, 243);
   overflow: hidden;
+  border-radius: 0 0 50% 50%/0 10% 10%;
+  box-shadow: 0 5px 35px rgba(31, 31, 31, 0.596);
 }
 
 .header-container {
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(5px) grayscale(70%);
+  backdrop-filter: grayscale(70%);
   display: grid;
   place-content: center;
 }
@@ -53,11 +50,60 @@ header {
   position:absolute;
   bottom: 0;
   left: 0;
-  fill: rgb(236, 236, 236);
+  fill: rgba(248, 248, 248, 0);
 }
 
 .region {
-  color: rgb(228, 226, 226);
+  color: rgb(197, 197, 197);
   text-align: center;
-  font-family: 'roboto mono';
+  font-family: 'poppins';
+}
+
+@media (min-width: 890px) {
+  .header-container .temp {
+    font-size: 8em;
+  }
+}
+
+
+.dark {
+  background: linear-gradient(135deg, rgba(9, 8, 16, 0.42) 25%, transparent 25%) -45px 0, linear-gradient(225deg, rgba(9, 8, 16, 0.42) 25%, transparent 25%) -45px 0, linear-gradient(315deg, rgba(9, 8, 16, 0.42) 25%, transparent 25%), linear-gradient(45deg, rgba(9, 8, 16, 0.42) 25%, transparent 25%);
+  background-size: 90px 90px;
+  background-color: #131822;
+}
+.dark > * {
+  color: white;
+}
+
+.dark .searchbox {
+  background-color: rgb(65, 66, 80);
+  color: white;
+}
+
+.dark .btn-form {
+  background-color: rgb(90, 196, 164);
+}
+
+.dark .card-details {
+  background-color: rgb(39, 45, 59);
+}
+.dark .card-details > * {
+  color: rgb(226, 224, 224);
+  font-weight: 200;
+}
+
+.dark .description button {
+  background-color: rgb(36, 42, 58);
+}
+
+.dark .description button:hover > .location-icon {
+  color: rgb(141, 245, 231);
+}
+.dark .location-icon {
+  width: 30px;
+  color: rgb(255, 255, 255);
+}
+
+.dark .no-content .button {
+  color: black;
 }

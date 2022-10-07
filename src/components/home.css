@@ -14,8 +14,11 @@ h1 {
 
 h1 span {
   font-weight: bold;
-  color: rgb(81, 204, 235);
+  /* color: rgb(81, 204, 235); */
   position: relative;
+  background: linear-gradient(90deg, #84c0d8, #94e7d5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h1 span::after {
@@ -55,21 +58,26 @@ h1 span::after {
   gap: 50px;
   justify-content: center;
   margin-top: 2em;
-
 }
 
 .card-details {
   background-color: white;
   width: 200px;
   display: flex;
+  justify-content: space-between;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
   border-radius: .5em;
+  box-shadow: 2px 5px 15px rgba(131, 131, 131, 0.075);
+  padding-bottom: 20px;
 }
 
 .card-details p {
   font-size: 1.5em;
+  font-weight: 400;
 }
+
 .card-details small {
   color: rgb(82, 81, 81);
 }
@@ -95,7 +103,7 @@ h1 span::after {
   transition: transform .1s;
 }
 .no-content .button  span {
-  color: rgb(56, 138, 231);
+  color: rgb(128, 233, 207);
   font-weight: bold;
 }
 
@@ -113,13 +121,13 @@ h1 span::after {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(-45deg, #89d8ec 0%, #8183cf 100% );
+  background: linear-gradient(-45deg, #61f1cdb7 0%, #1c2388c2 100% );
   transform: translate3d(0px, 20px, 0) scale(0.95);
   filter: blur(20px);
   opacity: var(0.7);
   transition: opacity 0.3s;
   border-radius: inherit;
-  animation: spin 4s linear infinite;
+  animation: spin 3s linear infinite;
 } 
 
 .no-content .button::after {
@@ -132,7 +140,30 @@ h1 span::after {
   left: 0;
   background: inherit;
   border-radius: inherit;
-  animation: spin 4s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+.description {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.description button {
+  width: 60px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(52, 53, 53, 0.103);
+  cursor: pointer;
+  transition: all .2s;
+
+}
+
+.location-icon {
+  width: 30px;
+  color: rgb(126, 212, 208);
 }
       
 
@@ -143,4 +174,18 @@ h1 span::after {
   to {
     transform: rotate(360deg);
   }
+}
+
+@media (min-width: 890px) {
+  h1 {
+    text-align: center;
+    font-size: 5em;
+  }
+
+  .icon {
+    width: 350px;
+    left: -200px;
+    top: -150px;
+  }
+
 }

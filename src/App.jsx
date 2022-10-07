@@ -2,18 +2,14 @@ import { useEffect, useState } from 'react';
 import './App.css'
 
 import Home from './components/home'
+import Forecast from './components/forecast';
 import { getCurrentWeather } from './services/get-current-weather';
 
 
 function App() {
   const [cw, setCw] = useState(null)
 
-  const removeLocation = () => {
-    window.localStorage.removeItem('city')
-
-    setCw(null)
-  }
-
+ 
   useEffect(()=> {
     const ciudad = window.localStorage.getItem('city')
     if(!ciudad) return
@@ -36,10 +32,9 @@ function App() {
           {cw && <p className='temp'>{cw?.temp_c}<span style={{fontSize: '.5em'}}>c</span> </p>}
           {cw && <p className='location'>{cw?.name}</p>}
           {cw && <small className='region'>{`${cw?.region}, ${cw?.country}`}</small>}
-          {cw && <button onClick={()=> removeLocation()}>CHAUUUUUUUUUU</button>}
         </div>
         <div style={{overflow: "hidden"}}>
-          <svg
+          {/* <svg
             className='header-divider'
             preserveAspectRatio="none"
             viewBox="0 0 1200 120"
@@ -47,10 +42,11 @@ function App() {
             style={{  width: '100%', height: 50, transform: 'rotate(180deg)' }}
           >
             <path d="M1200 120L0 16.48V0h1200v120z" />
-          </svg>
+          </svg> */}
         </div>
       </header>
       <Home cw={cw} setCw={setCw}/>
+      <Forecast />
     </main>
   )
 }
