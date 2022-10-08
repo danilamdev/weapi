@@ -10,7 +10,7 @@ const options = {
 
 
 export async function getCurrentWeather(city) {
-  const response = await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`, options)
+  const response = await fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${city}&lang=es`, options)
   const data = await response.json()
 
   return formatApiResponse(data)

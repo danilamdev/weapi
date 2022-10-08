@@ -33,9 +33,9 @@ h1 span::after {
 }
 
 .icon {
-  width: 200px;
+  width: 250px;
   position: absolute;
-  top: 0;
+  top: -15px;
   left: -10px;
   margin-top: -160px;
   filter: drop-shadow(0 0 10px rgba(104, 104, 104, 0.397));
@@ -44,7 +44,8 @@ h1 span::after {
 .condition {
   font-size: 2.5em;
   width: 75%;
-  font-weight: 400;
+  font-weight: 700;
+  color: rgb(68, 71, 83);
   margin-top: 1.3em;
 }
 
@@ -185,7 +186,7 @@ h1 span::after {
   .icon {
     width: 350px;
     left: -200px;
-    top: -150px;
+    top: -100px;
   }
 
 }

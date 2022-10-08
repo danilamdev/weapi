@@ -1,14 +1,13 @@
 header {
   height: 400px;
-  width: 100vw;
+  width: 100%;
   background: url('/weather.jpg');
   background-color: rgba(54, 56, 59, 0.568);
   background-blend-mode: multiply;
   background-size: cover;
   position: relative;
   color: rgb(243, 243, 243);
-  overflow: hidden;
-  border-radius: 0 0 50% 50%/0 10% 10%;
+  border-radius: 0 0 70% 50%/0 10% 10%;
   box-shadow: 0 5px 35px rgba(31, 31, 31, 0.596);
 }
 
@@ -40,29 +39,105 @@ header {
 
 }
 
-.header-container .location {
+
+.stat-container .location {
   font-weight: 200;
   text-align: center;
   font-size: 1.8em;
 }
 
-.header-divider {
-  position:absolute;
-  bottom: 0;
-  left: 0;
-  fill: rgba(248, 248, 248, 0);
-}
-
-.region {
-  color: rgb(197, 197, 197);
+.stat-container .region {
+  display: block;
   text-align: center;
   font-family: 'poppins';
+  margin: auto;
 }
+
+.header-container time {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 3em;
+  font-weight: 200;
+  color: rgb(241, 241, 241);
+}
+
+.details-app {
+  margin-top: 50px;
+  margin-inline: auto;
+  width: 90vw;
+  max-width: 600px;
+  cursor: pointer;
+}
+
+.details-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  justify-content: center;
+  column-gap: 10px;
+  row-gap: 10px;
+  padding: 2em 4em;
+  margin-top: 1em;
+  border: 2px solid rgb(193, 250, 217);
+  border-radius: 10px;
+}
+
+.details-info p {
+  font-size: .9em;
+  min-width: max-content;
+  color: rgb(126, 126, 126);
+
+}
+
+.details-info span {
+  color: rgb(10, 10, 10);
+}
+
+.details-app summary {
+  color: rgb(73, 73, 73);
+  margin-left: 30px;
+  position: relative;
+  list-style: none;
+  padding-left: 20px;
+}
+
+.details-app summary::before {
+  content: '\f0da';
+  position: absolute;
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 1.5em;
+  color: rgb(94, 112, 136);
+  left: 0;
+  transition: transform .5s ease;
+
+}
+
+.details-app[open] summary::before{
+  transform: rotate(90deg);
+  transition: transform .5s ease;
+} 
+
 
 @media (min-width: 890px) {
   .header-container .temp {
     font-size: 8em;
   }
+}
+
+
+
+/* -------dark theme ------ */
+
+
+.dark .details-info p {
+  color: rgb(126, 126, 126);
+  /* border: 1px solid red; */
+
+}
+
+.dark .details-info span {
+  color: rgb(255, 255, 255);
 }
 
 
