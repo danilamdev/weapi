@@ -1,28 +1,38 @@
 import { useState } from 'react'
 import '../styles/search.css'
 
-import { getCurrentWeather } from '../services/get-current-weather'
+import { usePlacesWidget } from "react-google-autocomplete";
 
-export default function Search({setCw}){
+export default function Search({setCity}){
+  const [location, setLocation] = useState({place:'', loc: null})
+  
+  const { ref, autocompleteRef } = usePlacesWidget({
+    apiKey:'AIzaSyAmiDJ06VXvbY1j8vptnimXALOohmn96tY',
+    onPlaceSelected: (place) => {
+      const loc = {
+        lat : place.geometry.location.lat(),
+        lon : place.geometry.location.lng()
+      }
 
-  const [city, setCity] = useState('')
+      setLocation((prev) => ({place: place.formatted_address, loc}))
+    }})
+
 
   const onCityChange = (e)=> {
-    setCity(e.target.value)
+    setLocation((prev) => ({...prev, place: e.target.value}))
   }
 
   const onSubmitLocation = async (e) => {
     e.preventDefault()
+    if(!location.loc) return 
 
-    const currentWeather = await getCurrentWeather(city)
-    setCw(currentWeather)
-
-    setCity('')
+    setCity(`${location.loc.lat},${location.loc.lon}`)
+    setLocation({place: '', loc: null})
   }
 
   return (
-    <form>
-      <input className="searchbox" type="text" placeholder="enter your location..." value={city} onChange={onCityChange}/>
+    <form onSubmit={(e) => e.preventDefault()}>
+      <input ref={ref} className="searchbox" type="text" placeholder="enter your location..." value={location.place} onChange={onCityChange}/>
 
       <button className='btn-form' onClick={onSubmitLocation}>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

@@ -7,9 +7,9 @@ const options = {
 }
 
 
-export async function getForecastWeather() {
+export async function getForecastWeather(city) {
 
-  const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=london&days=3&lang=es`, options)
+  const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3&lang=es`, options)
   const data = await response.json()
   const apiResponde = data.forecast.forecastday
 

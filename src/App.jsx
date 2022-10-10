@@ -1,65 +1,66 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './App.css'
 
 import Home from './components/home'
 import Forecast from './components/forecast';
-import { getCurrentWeather } from './services/get-current-weather';
-import { getForecastWeather } from './services/get-forecast-weather'
-
-
+import { useGetWeather } from './hooks/useGetWeather';
 
 
 function App() {
-  const [cw, setCw] = useState(null)
-  const [forecast, setForecast] = useState([])
-
+  const {city, setCity, current: c, forecast:f} = useGetWeather()
   
   useEffect(()=> {
     const location = window.localStorage.getItem('city')
     if(!location) return
-    
-    async function updateWeather(){
-      
-      const [currentWeather, forecastWeather] = await Promise.all([getCurrentWeather(location), getForecastWeather()])
-      setCw(currentWeather)
-      setForecast(forecastWeather)
-    }
-    updateWeather()
+
+    setCity(location)
+
   },[])
 
   return (
     <main className="App">
       <header>
         <div className='header-container'>
-          {cw && (
+          {c && (
             <div className='stat-container'>
-              <p className='temp'>{cw?.temp_c}<span style={{fontSize: '.5em'}}>c</span> </p>
-              <p className='location'>{cw?.name}</p>
-              <small className='region'>{`${cw?.region}, ${cw?.country}`}</small>
-              <time dateTime={cw?.localtime} className='time'>{cw?.localtime.split(' ')[1]}</time>
+              <p className='temp'>{c?.temp_c}<span style={{fontSize: '.5em'}}>c</span> </p>
+              <p className='location'>{c?.name}</p>
+              <small className='region'>{`${c?.region}, ${c?.country}`}</small>
+              <time dateTime={c?.localtime} className='time'>{c?.localtime.split(' ')[1]}</time>
             </div>
           )}
-         
         </div>
-       
       </header>
-      <Home cw={cw} setCw={setCw} setForecast={setForecast}/>
-
-      {cw && (
+    
+      <Home 
+        city={city}
+        setCity={setCity}
+        current={c}
+      />
+      {c && (
         <>
-         <details className='details-app'>
-          <summary>Mas detalles...</summary>
-          <div className="details-info">
-            <p>temperatura: <span>{cw?.temp_c}°c</span></p>
-            <p>sensacion termica: <span>{cw?.senTerm}°c</span></p>
-            <p>vel. viento: <span>{cw?.wind_kph}km</span></p>
-            <p>direccion viento: <span>{cw?.wind_dir}</span></p>
-            <p>visibilidad: <span>{cw?.vis_km}km</span></p>
-            <p>presion: <span>{cw?.pressure} hPa</span></p>
-            <p>uv: <span>{cw?.uv}</span></p>
-          </div>
-        </details>
-        <Forecast forecast={forecast}/>
+          <details className='details-app'>
+            <summary>Mas detalles...</summary>
+              <div className="details-info">
+                <p>temperatura: <span>{c?.temp_c}°c</span></p>
+                <p>sensacion termica: <span>{c?.senTerm}°c</span></p>
+                <p>vel. viento: <span>{c?.wind_kph}km</span></p>
+                <p>direccion viento: <span>{c?.wind_dir}</span></p>
+                <p>visibilidad: <span>{c?.vis_km}km</span></p>
+                <p>presion: <span>{c?.pressure} hPa</span></p>
+                <p>uv: <span>{c?.uv}</span></p>
+              </div>
+          </details>
+          <Forecast forecast={f}/>
+        
+         <iframe
+            className='map-iframe'
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src={`https://www.google.com/maps/embed/v1/view?zoom=13&key=AIzaSyAmiDJ06VXvbY1j8vptnimXALOohmn96tY&center=${c.lat},${c.lon}`}>
+          </iframe>
+
         </>
       )}
      
