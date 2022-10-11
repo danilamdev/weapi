@@ -1,11 +1,14 @@
 import '../styles/home.css'
 import ICONS from '../utils/icons'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 import Search from './search'
 
 import { getCurrentLoc } from '../services/get-current-location'
 
 export default function Home({city, setCity, current}){
+
+  const [parent] = useAutoAnimate()
 
   const getLocation = async () => {
     const location = await getCurrentLoc()
@@ -23,7 +26,7 @@ export default function Home({city, setCity, current}){
 
   return (
     <section>
-      <div className="main-app">
+      <div className="main-app" ref={parent}>
         <h1>We<span>api</span></h1>
         
         {current 

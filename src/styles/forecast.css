@@ -1,5 +1,6 @@
 .forecast-back {
-  background-color: rgb(229, 236, 250);
+  /* background-color: rgb(229, 236, 250); */
+  background-image: linear-gradient(to bottom left, rgba(220, 252, 244, 0.637), rgb(212, 231, 247));
   margin-top: 4em;
   padding: 20px 0;
 }
@@ -10,7 +11,6 @@
   padding-inline: 1em;
   margin-top: 50px;
   position: relative;
-  /* border: 1px solid black; */
 }
 
 .forecast-title {
@@ -18,7 +18,7 @@
   color: rgb(68, 68, 87);
   width: 75%;
   font-weight: 700;
-  margin-top: 1.3em;
+  margin-block: 1.3em;
 }
 .forecast-container {
   display: flex;
@@ -45,6 +45,8 @@
 .date {
   width: 100%;
   text-align: center;
+  color: rgb(137, 137, 160);
+  font-weight: 200;
 }
 
 .forecast-card img {
@@ -56,6 +58,8 @@
 .forecast-description {
   width: 100%;
   height: 75px;
+  font-weight: bold;
+  color: rgb(89, 93, 116);
 }
 
 .forecast-data {
@@ -78,10 +82,46 @@
     min-width: 1080px;
   }
 
+  .forecast-container {
+    gap: 4em;
+  }
+
   .forecast-title {
-    font-size: 2.5em;
+    font-size: 2.8em;
+    margin-bottom: 2em;
   }
   .forecast-data{
     font-size: 1em;
   }
+}
+
+/* --------Dark-------- */
+
+.dark .forecast-back {
+  background-image: linear-gradient(to bottom left, rgb(32, 33, 58), rgb(55, 71, 85));
+
+}
+
+.dark .forecast-title {
+  color: rgb(233, 233, 233);
+}
+
+.dark .forecast-card {
+  background-color: rgb(34, 40, 58);
+}
+
+.dark .forecast-description {
+  color: rgb(226, 217, 230);
+}
+
+.dark .date {
+  color: rgb(187, 187, 187);
+}
+
+.dark .forecast-data > p {
+  color: rgb(134, 133, 133);
+}
+
+.dark .forecast-data span {
+  color: rgb(184, 145, 228);
 }

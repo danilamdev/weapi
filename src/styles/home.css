@@ -205,5 +205,8 @@ h1 span::after {
   .condition {
     font-size: 3.5em;
   }
+}
 
+.dark .condition {
+  color: rgb(219, 219, 219);
 }

@@ -39,7 +39,7 @@ function App() {
       />
       {c && (
         <>
-          <details className='details-app'>
+          <details className='details-app' >
             <summary>Mas detalles...</summary>
               <div className="details-info">
                 <p>temperatura: <span>{c?.temp_c}°c</span></p>

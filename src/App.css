@@ -144,7 +144,7 @@ header {
 @media (min-width: 1290px) {
   .details-app {
     margin-top: 7em;
-    max-width: 850px;
+    max-width: 950px;
   }
 
   .details-info {
@@ -215,4 +215,12 @@ header {
 
 .dark .no-content .button {
   color: black;
+}
+
+.dark .details-app summary {
+  color: rgb(206, 199, 199);
+}
+
+.dark .details-app summary::before {
+  color: rgb(124, 157, 201);
 }

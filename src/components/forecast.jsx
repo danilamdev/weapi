@@ -1,14 +1,18 @@
 import '../styles/forecast.css'
 import ICONS from '../utils/icons'
 
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+
 
 export default function Forecast({forecast}){
+
+  const [parent] = useAutoAnimate({duration: 1000})
 
   return (
     <div className="forecast-back">
       <div className="main-forecast">
         <h2 className='forecast-title'>forecast</h2>
-        <div className="forecast-container">
+        <div ref={parent} className="forecast-container">
         {
           forecast.map( d => (
             <div key={d.date} className="forecast-card">

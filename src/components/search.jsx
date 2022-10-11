@@ -6,7 +6,7 @@ import { usePlacesWidget } from "react-google-autocomplete";
 export default function Search({setCity}){
   const [location, setLocation] = useState({place:'', loc: null})
   
-  const { ref, autocompleteRef } = usePlacesWidget({
+  const { ref } = usePlacesWidget({
     apiKey:'AIzaSyAmiDJ06VXvbY1j8vptnimXALOohmn96tY',
     onPlaceSelected: (place) => {
       const loc = {
