@@ -35,7 +35,7 @@ function App() {
         <div className='header-container'>
           {c && (
             <div className='stat-container'>
-              <p className='temp'>{c?.temp_c}<span style={{fontSize: '.5em'}}>c</span> </p>
+              <p className='temp'>{c?.temp_c}<span style={{fontSize: '.4em'}}>°c</span> </p>
               <p className='location'>{c?.name}</p>
               <small className='region'>{`${c?.region}, ${c?.country}`}</small>
               <time dateTime={c?.localtime} className='time'>{c?.localtime.split(' ')[1]}</time>

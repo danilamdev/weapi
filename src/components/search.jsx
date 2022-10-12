@@ -32,7 +32,7 @@ export default function Search({setCity}){
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <input ref={ref} className="searchbox" type="text" placeholder="enter your location..." value={location.place} onChange={onCityChange}/>
+      <input ref={ref} className="searchbox" type="text" placeholder="Escribe una ubicacion..." value={location.place} onChange={onCityChange}/>
 
       <button className='btn-form' onClick={onSubmitLocation}>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

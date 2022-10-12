@@ -14,9 +14,9 @@ h1 {
 
 h1 span {
   font-weight: bold;
-  /* color: rgb(81, 204, 235); */
   position: relative;
   background: linear-gradient(90deg, #84c0d8, #94e7d5);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -33,16 +33,16 @@ h1 span::after {
 }
 
 .icon {
-  width: 250px;
+  width: 160px;
   position: absolute;
-  top: -15px;
+  top: 30px;
   left: -10px;
   margin-top: -160px;
   filter: drop-shadow(0 0 10px rgba(104, 104, 104, 0.397));
 }
 
 .condition {
-  font-size: 2.5em;
+  font-size: 2.2em;
   width: 75%;
   font-weight: 700;
   color: rgb(68, 71, 83);
@@ -56,7 +56,7 @@ h1 span::after {
 
 .details {
   display: flex;
-  gap: 50px;
+  gap: 5px;
   justify-content: center;
   margin-top: 2em;
 }
@@ -91,6 +91,9 @@ h1 span::after {
   place-content: center;
 }
 
+.no-content .button:active {
+  background-color: none;
+}
 .no-content .button {
   background-color: white;
   border-radius: 50%;
@@ -191,6 +194,7 @@ h1 span::after {
   }
   .details {
     margin-top: 8em;
+    gap: 50px;
   }
   .card-details {
     width: 250px;

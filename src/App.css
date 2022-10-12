@@ -21,30 +21,21 @@ header {
 }
 
 .header-container .temp {
-  font-size: 7em;
+  font-size: 5em;
   font-weight: 200;
   text-align: center;
   position: relative;
   font-family: 'roboto mono';
-}
-
-.header-container .temp::before {
-  content: 'Today';
-  font-size: .18em;
-  font-weight: 700;
-  position:absolute;
-  font-family: 'poppins';
-  top: -20px;
-  color: rgb(253, 253, 253);
-  right: 130px;
-
+  width: max-content;
+  margin: auto;
 }
 
 
 .stat-container .location {
+  margin-top: 30px;
   font-weight: 200;
   text-align: center;
-  font-size: 1.8em;
+  font-size: 1.4em;
 }
 
 .stat-container .region {
@@ -52,13 +43,13 @@ header {
   text-align: center;
   font-family: 'poppins';
   margin: auto;
+  font-size: .7em;
 }
 
 .header-container time {
   display: block;
   text-align: center;
-  margin-top: 20px;
-  font-size: 3em;
+  font-size: 2.3em;
   font-weight: 200;
   color: rgb(241, 241, 241);
 }
