@@ -72,6 +72,7 @@ h1 span::after {
   border-radius: .5em;
   box-shadow: 2px 5px 15px rgba(131, 131, 131, 0.075);
   padding-bottom: 20px;
+  transition: background-color .3s;
 }
 
 .card-details p {

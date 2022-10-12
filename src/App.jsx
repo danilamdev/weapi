@@ -1,25 +1,37 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 
 import Home from './components/home'
+import Toggle from './components/toggle';
 import Forecast from './components/forecast';
 import { useGetWeather } from './hooks/useGetWeather';
 
 
 function App() {
   const {city, setCity, current: c, forecast:f} = useGetWeather()
+  const [darkMode, setDarkMode] = useState(false)
+
+  let isDarkMode = window.matchMedia('@media (prefers-color-scheme: dark)').matches
   
   useEffect(()=> {
     const location = window.localStorage.getItem('city')
     if(!location) return
 
     setCity(location)
+  },[])
 
+  useEffect(()=> {
+    if(isDarkMode || darkMode){
+      document.body.classList.add('dark')
+    }
   },[])
 
   return (
     <main className="App">
       <header>
+        <div className="toggle-container">
+          <Toggle darkMode={darkMode} setDarkMode={setDarkMode} />
+        </div>
         <div className='header-container'>
           {c && (
             <div className='stat-container'>
@@ -43,7 +55,7 @@ function App() {
             <summary>Mas detalles...</summary>
               <div className="details-info">
                 <p>temperatura: <span>{c?.temp_c}°c</span></p>
-                <p>sensacion termica: <span>{c?.senTerm}°c</span></p>
+                <p>sens T.: <span>{c?.senTerm}°c</span></p>
                 <p>vel. viento: <span>{c?.wind_kph}km</span></p>
                 <p>direccion viento: <span>{c?.wind_dir}</span></p>
                 <p>visibilidad: <span>{c?.vis_km}km</span></p>

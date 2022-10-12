@@ -37,6 +37,7 @@
   border-radius: 10px;
   margin-bottom: 4em ;
   height: auto;
+  transition: background-color .3s;
 }
 .forecast-card > * {
   margin-bottom: 1em;
@@ -102,12 +103,17 @@
 
 }
 
+.dark .forecast-card img {
+  filter: drop-shadow(0 0 0);
+}
+
 .dark .forecast-title {
   color: rgb(233, 233, 233);
 }
 
 .dark .forecast-card {
   background-color: rgb(34, 40, 58);
+  transition: background-color .3s;
 }
 
 .dark .forecast-description {
